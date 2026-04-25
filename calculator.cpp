@@ -14,20 +14,22 @@ class Calculator{
 		}//end printMenu()
 		
 		void printBasicOpMenu(){
+			cout<<"\nBasic Calculator Operation: "<<endl;
 			cout<<"(1) Addition"<<endl;
 			cout<<"(2) Subtraction"<<endl;
 			cout<<"(3) Multiplication"<<endl;
 			cout<<"(4) Division"<<endl;
 			cout<<"(5) Modulus"<<endl;
-			cout<<"(0) Exit"<<endl;
+			cout<<"(0) Return to Main Menu"<<endl;
 		}//end printBasicOpMenu()
 		
 		void printAdvOpMenu(){
+			cout<<"\nAdvanced Calculator Operations: "<<endl;
 			cout<<"(1) Power"<<endl;
 			cout<<"(2) Root"<<endl;
 			cout<<"(3) Absolute Value"<<endl;
 			cout<<"(4) Factorial"<<endl;
-			cout<<"(0) Exit"<<endl;
+			cout<<"(0) Return to Main Menu"<<endl;
 		}//end printAdvOpMenu()
 		
 		float add(float op1, float op2){
@@ -80,6 +82,10 @@ class Calculator{
 			}//end else if
 		}//end power()
 		
+		float root(float op1, float op2){
+			//
+		}//end root()
+		
 		float absVal(float op){
 			if(op>=0){
 				return op;
@@ -110,145 +116,191 @@ int main(){
 	Calculator calc;
 	
 	int iMenuChoice=1;
-	while(iMenuChoice!=0){
+	while(iMenuChoice){
 		calc.printStartMenu();
 		
 		cout<<"Enter menu choice: ";
 		cin>>iMenuChoice;
 		
-		int iBasicMenuChoice=1;
-		while(iBasicMenuChoice!=1){
-			calc.printBasicOpMenu();
-			
-			cout<<"Enter operation: ";
-			cin>>iBasicMenuChoice;
-			
-			if(iBasicMenuChoice==1){
-				cout<<"\nAddition: "<<endl;
-				float fNum1;
-				float fNum2;
+		if(iMenuChoice==1){
+			int iBasicMenuChoice=1;
+			while(iBasicMenuChoice){
+				calc.printBasicOpMenu();
 				
-				cout<<"Enter first operand: ";
-				cin>>fNum1;
+				cout<<"Enter operation: ";
+				cin>>iBasicMenuChoice;
 				
-				cout<<"Enter second operand: ";
-				cin>>fNum2;
-				
-				float fResult=calc.add(fNum1, fNum2);
-				cout<<"Result: "<<fResult<<endl;
-			}//end if
-			
-			else if(iBasicMenuChoice==2){
-				cout<<"\nSubtraction: "<<endl;
-				float fNum1;
-				float fNum2;
-				
-				cout<<"Enter first operand: ";
-				cin>>fNum1;
-				
-				cout<<"Enter second operand: ";
-				cin>>fNum2;
-				
-				float fResult=calc.subtract(fNum1, fNum2);
-				cout<<"Result: "<<fResult<<endl;
-			}//end else if
-			
-			else if(iBasicMenuChoice==3){
-				cout<<"\nMultiplication"<<endl;
-				float fNum1;
-				float fNum2;
-				
-				cout<<"Enter first operand: ";
-				cin>>fNum1;
-				
-				cout<<"Enter second operand: ";
-				cin>>fNum2;
-				
-				float fResult=calc.multiply(fNum1, fNum2);
-				cout<<"Result: "<<fResult<<endl;
-			}//end else if
-			
-			else if(iBasicMenuChoice==4){
-				cout<<"\nDivision: "<<endl;
-				float fNum1;
-				float fNum2;
-				
-				cout<<"Enter first operand: ";
-				cin>>fNum1;
-				
-				cout<<"Enter second operand: ";
-				cin>>fNum2;
-				
-				if(fNum2==0){
-					cout<<"Error: Connot divide by 0"<<endl;
+				if(iBasicMenuChoice==1){
+					cout<<"\nAddition: "<<endl;
+					float fNum1;
+					float fNum2;
+					
+					cout<<"Enter first operand: ";
+					cin>>fNum1;
+					
+					cout<<"Enter second operand: ";
+					cin>>fNum2;
+					
+					float fResult=calc.add(fNum1, fNum2);
+					cout<<"Result: "<<fResult<<endl;
 				}//end if
 				
-				else{
-					float fResult=calc.divide(fNum1, fNum2);
+				else if(iBasicMenuChoice==2){
+					cout<<"\nSubtraction: "<<endl;
+					float fNum1;
+					float fNum2;
+					
+					cout<<"Enter first operand: ";
+					cin>>fNum1;
+					
+					cout<<"Enter second operand: ";
+					cin>>fNum2;
+					
+					float fResult=calc.subtract(fNum1, fNum2);
 					cout<<"Result: "<<fResult<<endl;
-				}//end else
-			}//end else if
-			
-			else if(iBasicMenuChoice==5){
-				cout<<"\nModulo: "<<endl;
-				int iNum1;
-				int iNum2;
+				}//end else if
 				
-				cout<<"Enter first operand (integer only): ";
-				cin>>iNum1;
+				else if(iBasicMenuChoice==3){
+					cout<<"\nMultiplication"<<endl;
+					float fNum1;
+					float fNum2;
+					
+					cout<<"Enter first operand: ";
+					cin>>fNum1;
+					
+					cout<<"Enter second operand: ";
+					cin>>fNum2;
+					
+					float fResult=calc.multiply(fNum1, fNum2);
+					cout<<"Result: "<<fResult<<endl;
+				}//end else if
 				
-				cout<<"Enter second operand (integer only): ";
-				cin>>iNum2;
+				else if(iBasicMenuChoice==4){
+					cout<<"\nDivision: "<<endl;
+					float fNum1;
+					float fNum2;
+					
+					cout<<"Enter first operand: ";
+					cin>>fNum1;
+					
+					cout<<"Enter second operand: ";
+					cin>>fNum2;
+					
+					if(fNum2==0){
+						cout<<"Error: Connot divide by 0"<<endl;
+					}//end if
+					
+					else{
+						float fResult=calc.divide(fNum1, fNum2);
+						cout<<"Result: "<<fResult<<endl;
+					}//end else
+				}//end else if
 				
-				int iResult=calc.modulo(iNum1, iNum2);
-				cout<<"Result: "<<iResult<<endl;
-			}//end else if
-		}//end while loop
+				else if(iBasicMenuChoice==5){
+					cout<<"\nModulo: "<<endl;
+					int iNum1;
+					int iNum2;
+					
+					cout<<"Enter first operand (integer only): ";
+					cin>>iNum1;
+					
+					cout<<"Enter second operand (integer only): ";
+					cin>>iNum2;
+					
+					int iResult=calc.modulo(iNum1, iNum2);
+					cout<<"Result: "<<iResult<<endl;
+				}//end else if
+				
+				else if(iBasicMenuChoice==0){
+					break;
+				}//end else if
+			}//end while loop
+		}//end if
 		
-		 if(iMenuChoice==6){
-			cout<<"\nPower: "<<endl;
-			float fNum1;
-			float fNum2;
-			
-			cout<<"Enter the base value: ";
-			cin>>fNum1;
-			
-			cout<<"Enter the exponent (integer only): ";
-			cin>>fNum2;
-			
-			float fResult=calc.power(fNum1, fNum2);
-			cout<<"Result: "<<fResult<<endl;
+		else if(iMenuChoice==2){
+			int iAdvMenuChoice=1;
+			while(iAdvMenuChoice){
+				calc.printAdvOpMenu();
+				
+				cout<<"Enter operation: ";
+				cin>>iAdvMenuChoice;
+				
+				if(iAdvMenuChoice==1){
+					cout<<"\nPower: "<<endl;
+					float fNum1;
+					float fNum2;
+					
+					cout<<"Enter the base value: ";
+					cin>>fNum1;
+					
+					cout<<"Enter the exponent (integer only): ";
+					cin>>fNum2;
+					
+					float fResult=calc.power(fNum1, fNum2);
+					cout<<"Result: "<<fResult<<endl;
+				}//end else if
+				
+				else if(iAdvMenuChoice==2){
+					cout<<"\nRoot: "<<endl;
+					float fNum1;
+					float fNum2;
+					
+					cout<<"Enter the radicand: ";
+					cin>>fNum1;
+					
+					cout<<"Enter the root: ";
+					cin>>fNum2;
+					
+					if(fNum1<0){
+						cout<<"Undefined: Requires complex plane"<<endl;
+					}//end if
+					
+					else{
+						float fResult=calc.root(fNum1, fNum2);
+						cout<<"Result: "<<fResult<<endl;
+					}//end else
+				}//end else if
+				
+				else if(iAdvMenuChoice==3){
+					cout<<"\nAbsolute Value: "<<endl;
+					float fNum;
+					
+					cout<<"Enter the value: ";
+					cin>>fNum;
+					
+					float fResult=calc.absVal(fNum);
+					cout<<"Result: "<<fResult<<endl;
+				}//end else if
+				
+				else if(iAdvMenuChoice==4){
+					cout<<"\nFactorial"<<endl;
+					int iNum;
+					
+					cout<<"Enter the value (integer only, <=12): ";
+					cin>>iNum;
+					
+					if(iNum<0){
+						cout<<"Error: Cannon take facotrial of negative value"<<endl;
+					}//end if
+					
+					else{
+						int iResult=calc.factorial(iNum);
+						cout<<"Result: "<<iResult<<endl;
+					}//end else
+				}//end else if
+				
+				else if(iAdvMenuChoice==0){
+					break;
+				}//end else if
+			}//end while loop
 		}//end else if
 		
-		else if(iMenuChoice==7){
-			cout<<"\nAbsolute Value: "<<endl;
-			float fNum;
-			
-			cout<<"Enter the value: ";
-			cin>>fNum;
-			
-			float fResult=calc.absVal(fNum);
-			cout<<"Result: "<<fResult<<endl;
-		}//end else if
-		
-		else if(iMenuChoice==8){
-			cout<<"\nFactorial"<<endl;
-			int iNum;
-			
-			cout<<"Enter the value (integer only, <=12): ";
-			cin>>iNum;
-			
-			if(iNum<0){
-				cout<<"Error: Cannon take facotrial of negative value"<<endl;
-			}//end if
-			
-			else{
-				int iResult=calc.factorial(iNum);
-				cout<<"Result: "<<iResult<<endl;
-			}//end else
+		else if(iMenuChoice==0){
+			cout<<"\nEnding Program"<<endl;
+			break;
 		}//end else if
 	}//end while loop
-	cout<<"\nEnding Program"<<endl;
+	
 	
 	
 	return 0;
