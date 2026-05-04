@@ -32,6 +32,12 @@ class Calculator{
 			cout<<"(0) Return to Main Menu"<<endl;
 		}//end printAdvOpMenu()
 		
+		void printConvMenu(){
+			cout<<"\nConversions: "<<endl;
+			cout<<"(1) Decimal to Fraction"<<endl;
+			cout<<"(0) Return to Main Menu"<<endl;
+		}//end printConvMenu()
+		
 		float add(float op1, float op2){
 			return op1 + op2;
 		}//end add()
@@ -110,6 +116,10 @@ class Calculator{
 				return iResult;
 			}//end else
 		}//end factorial()
+		
+		float decToFac(float op){
+			//
+		}//end dec>fac()
 };//end Calculator class
 
 int main(){
@@ -290,6 +300,25 @@ int main(){
 				}//end else if
 				
 				else if(iAdvMenuChoice==0){
+					break;
+				}//end else if
+			}//end while loop
+		}//end else if
+		
+		else if(iMenuChoice==3){
+			int iConvMenuChoice=1;
+			
+			while(iConvMenuChoice){
+				calc.printConvMenu();
+				
+				cout<<"Enter operation: ";
+				cin>>iConvMenuChoice;
+				
+				if(iConvMenuChoice==1){
+					//
+				}//end if
+				
+				else if(iConvMenuChoice==0){
 					break;
 				}//end else if
 			}//end while loop
